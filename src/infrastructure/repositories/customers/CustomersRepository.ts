@@ -17,7 +17,7 @@ class CustomersRepository implements ICustomersRepository {
         return customer;
     }
 
-    async update({ id, name, email, city, address }: Customer): Promise<Customer> {
+    async update(id: string, { name, email, city, address }: Customer): Promise<Customer> {
         const customer = await client.customer.update({
             where: {
                 id
