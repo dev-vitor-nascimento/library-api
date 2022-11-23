@@ -13,14 +13,4 @@ model Customer {
   email   String @unique
   city    String
   address String
-
-  @@map("customers")
-}
-
-model publisher {
-  id   String @id @default(uuid())
-  name String @unique
-  city String
-
-  @@map("publishers")
 }
