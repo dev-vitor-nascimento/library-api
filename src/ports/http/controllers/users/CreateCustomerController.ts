@@ -1,4 +1,4 @@
-import { CreateCustomerUseCase } from '@application/useCases/customers/CreateCustomerUserCase';
+import { CreateCustomerUseCase } from '@application/useCases/customers/CreateCustomerUseCase';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

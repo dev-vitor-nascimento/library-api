@@ -7,18 +7,17 @@ import { injectable, inject } from "tsyringe";
 class CreateCustomerUseCase {
     constructor(
         @inject("CustomersRepository")
-        private customerRepository: ICustomersRepository
+        private customersRepository: ICustomersRepository
     ) { }
 
     async execute({ name, email, city, address }: Customer): Promise<Customer> {
-
-        const customerAlreadyExists = await this.customerRepository.findByEmail(email);
+        const customerAlreadyExists = await this.customersRepository.findByEmail(email);
 
         if (customerAlreadyExists) {
             throw new BadRequestException("Email already exists.");
         }
 
-        const customer = await this.customerRepository.create({
+        const customer = await this.customersRepository.create({
             name,
             email,
             city,

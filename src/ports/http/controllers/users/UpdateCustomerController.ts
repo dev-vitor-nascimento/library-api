@@ -1,4 +1,4 @@
-import { UpdateCustomerUseCase } from '@application/useCases/customers/UpdateCustomerUserCase';
+import { UpdateCustomerUseCase } from '@application/useCases/customers/UpdateCustomerUseCase';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
