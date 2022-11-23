@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { customerValidation } from "@domain/validation/CustomerValidation";
 import { idValidation } from "@domain/validation/idValidation";
-import { CreateCustomerController } from "../controllers/users/CreateCustomerController";
-import { DeleteCustomerController } from "../controllers/users/DeleteCustomerController";
-import { FindAllCustomersController } from "../controllers/users/FindAllCustomersController";
-import { FindCustomerByIdController } from "../controllers/users/FindCustomerByIdController";
-import { UpdateCustomerController } from "../controllers/users/UpdateCustomerController";
+import { CreateCustomerController } from "../controllers/customers/CreateCustomerController";
+import { DeleteCustomerController } from "../controllers/customers/DeleteCustomerController";
+import { FindAllCustomersController } from "../controllers/customers/FindAllCustomersController";
+import { FindCustomerByIdController } from "../controllers/customers/FindCustomerByIdController";
+import { UpdateCustomerController } from "../controllers/customers/UpdateCustomerController";
 import { validationHandler } from "../middlewares/validationHandler";
 
 const customersRoutes = Router();
