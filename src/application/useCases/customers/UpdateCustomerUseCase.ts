@@ -17,10 +17,10 @@ class UpdateCustomerUseCase {
             throw new BadRequestException("Customer not exists.");
         }
 
-        const customerAlreadyExists = await this.customersRepository.findByEmail(email);
+        const emailAlreadyInUse = await this.customersRepository.findByEmail(email);
 
-        if (customerAlreadyExists && (customerAlreadyExists.id != customerNotExists.id)) {
-            throw new BadRequestException("Email already exists.");
+        if (emailAlreadyInUse && (emailAlreadyInUse.id != id)) {
+            throw new BadRequestException("Email already in use.");
         }
 
         const customer = await this.customersRepository.update({

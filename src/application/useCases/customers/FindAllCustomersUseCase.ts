@@ -1,12 +1,12 @@
 import { Customer } from "@domain/entities/Customer";
-import { CustomersRepository } from "@infrastructure/repositories/customers/CustomersRepository";
+import { ICustomersRepository } from "@domain/repositories/ICustomersRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
 class FindAllCustomersUseCase {
     constructor(
         @inject("CustomersRepository")
-        private customersRepository: CustomersRepository
+        private customersRepository: ICustomersRepository
     ) { }
 
     async execute(): Promise<Customer[]> {

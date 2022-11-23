@@ -1,5 +1,5 @@
 import { Customer } from "@domain/entities/Customer";
-import { CustomersRepository } from "@infrastructure/repositories/customers/CustomersRepository";
+import { ICustomersRepository } from "@domain/repositories/ICustomersRepository";
 import { BadRequestException } from "@ports/http/errors/BadRequestException";
 import { inject, injectable } from "tsyringe";
 
@@ -7,7 +7,7 @@ import { inject, injectable } from "tsyringe";
 class FindCustomerByIdUseCase {
     constructor(
         @inject("CustomersRepository")
-        private customersRepository: CustomersRepository
+        private customersRepository: ICustomersRepository
     ) { }
 
     async execute(id: string): Promise<Customer> {
