@@ -18,9 +18,22 @@ model Customer {
 }
 
 model Publisher {
-  id   String @id @default(uuid())
-  name String @unique
-  city String
+  id    String @id @default(uuid())
+  name  String @unique
+  city  String
+  books Book[]
 
   @@map("publishers")
+}
+
+model Book {
+  id          String    @id @default(uuid())
+  title       String
+  author      String
+  releaseYear Int       @map("release_year") @db.Year
+  publisher   Publisher @relation(fields: [publisherId], references: [id], onDelete: Restrict)
+  publisherId String    @map("publisher_id")
+
+  @@unique([title, publisherId])
+  @@map("books")
 }
