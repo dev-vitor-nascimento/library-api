@@ -3,12 +3,12 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 class FindAllPublishersController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const findAllPublishersUseCase = container.resolve(FindAllPublishersUseCase);
 
         const publishers = await findAllPublishersUseCase.execute();
 
-        response.json(publishers);
+        return response.json(publishers);
     }
 }
 

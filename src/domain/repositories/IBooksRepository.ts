@@ -1,5 +1,4 @@
 import { Book } from "@domain/entities/BookEntity";
-import { Publisher } from "@domain/entities/Publisher";
 import { BookIncludePublisher } from "@domain/types/BookIncludePublisher";
 
 interface IBooksRepository {

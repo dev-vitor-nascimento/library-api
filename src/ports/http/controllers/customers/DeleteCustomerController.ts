@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 class DeleteCustomerController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
 
         const deleteCustomerUseCase = container.resolve(DeleteCustomerUseCase);

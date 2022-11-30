@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 class CreatePublisherController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { name, city } = request.body;
 
         const createPublisherUseCase = container.resolve(CreatePublisherUseCase);
@@ -13,7 +13,7 @@ class CreatePublisherController {
             city
         });
 
-        response.status(201).json(publisher);
+        return response.status(201).json(publisher);
     }
 }
 

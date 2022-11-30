@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 class UpdateBookController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
         const { title, author, release_year, publisher_id } = request.body;
 
@@ -20,7 +20,7 @@ class UpdateBookController {
             publisher_id
         );
 
-        response.json(book);
+        return response.json(book);
     }
 }
 

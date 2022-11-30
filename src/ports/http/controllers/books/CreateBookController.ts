@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 class CreateBookController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { title, author, release_year, publisher_id } = request.body;
 
         const createBookUseCase = container.resolve(CreateBookUseCase);
@@ -17,7 +17,7 @@ class CreateBookController {
             publisher_id
         );
 
-        response.status(201).json(book);
+        return response.status(201).json(book);
     }
 }
 
